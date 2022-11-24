@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SimpleGameTypes.h"
+#include "DataContainer.h"
 
 namespace Data
 {
@@ -27,5 +28,7 @@ namespace Game
         void OnMatchResult(const GameTypes::eGameSide); // Called when the game session finishes
         
         // Some other related code.
+        private:
+        Data::DataContainer m_data_container;
     };
 }

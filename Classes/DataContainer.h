@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include "PlayerDataHandler.h"
 
 namespace Achievement
 {
@@ -15,6 +16,10 @@ namespace Data
         public:
         // Some other related code.
         const std::vector<const Achievement::AchievementDefinition*>& GetAchievementDefinitions();
+        const void SetAchievementDefinitions(std::vector<const Achievement::AchievementDefinition*>);
+        PlayerDataHandler m_player_data_handler;
+        PlayerDataHandler m_opponent_data_handler;
+
         
         // Some other related code.
         
