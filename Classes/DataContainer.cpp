@@ -9,7 +9,10 @@ namespace Data
     {
         return achievementDefs;
     }
-
+    const void DataContainer::SetAchievementDefinitions(
+        std::vector<const Achievement::AchievementDefinition *>) {
+      return;
+    }
 
     // Some other related code.
 }

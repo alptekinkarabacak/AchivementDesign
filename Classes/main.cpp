@@ -6,7 +6,7 @@ int main()
 {
     Game::GameLoop gameLoop;
     Data::DataContainer theWholeData;
-    Achievement::AchievementDefinition *achievementDefinition;
+    Achievement::AchievementDefinition *achievementDefinition = new Achievement::AchievementDefinition();
     std::vector<const Achievement::AchievementDefinition*> achivements;
     achievementDefinition->ImagePath = "asdad";
     achievementDefinition->RewardTypes.emplace_back("First tap");
