@@ -1,11 +1,13 @@
-cmake_minimum_required(VERSION 3.21)
-project(Classes)
+cmake_minimum_required(VERSION 3.20)
+project(MasomoAssignment)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 include_directories(.)
+find_package( Curses REQUIRED )
+include_directories( ${CURSES_INCLUDE_DIRS} )
 
-add_executable(Classes
+add_executable(MasomoAssignment
         AchievementDefinition.h
         DataContainer.cpp
         DataContainer.h
@@ -17,3 +19,4 @@ add_executable(Classes
         SimpleGameTypes.h
         Tap.h
         UIElement.h)
+target_link_libraries(MasomoAssignment ${CURSES_LIBRARIES})

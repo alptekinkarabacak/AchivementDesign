@@ -18,4 +18,14 @@ namespace Data
           int total_diamond;
         // Some other related codeç.
     };
+
+    void PlayerDataHandler::SetCurrency(const int amount, const GameTypes::eCurrencyType type) {
+       if(type == GameTypes::eCurrencyType::DIAMOND)
+       {
+           total_diamond += amount;
+       } else if (type == GameTypes::eCurrencyType::GOLD)
+       {
+           total_gold += amount;
+       }
+    }
 }

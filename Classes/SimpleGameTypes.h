@@ -6,7 +6,8 @@ namespace GameTypes
     enum class eGameSide
     {
         PLAYER, // representing the physical player playing the game
-        OPPONENT // representing the opponent of the PLAYER
+        OPPONENT, // representing the opponent of the PLAYER
+        UNDEFINIED
     };
     
     // An enum representing the hard currency type

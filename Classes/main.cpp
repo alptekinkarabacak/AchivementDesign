@@ -1,10 +1,12 @@
 #include "GameLoop.h"
 #include "DataContainer.h"
 #include "AchievementDefinition.h"
+#include "iostream"
 
 int main()
 {
     Game::GameLoop gameLoop;
+    system("/bin/stty raw");
     Data::DataContainer theWholeData;
     Achievement::AchievementDefinition *achievementDefinition = new Achievement::AchievementDefinition();
     std::vector<const Achievement::AchievementDefinition*> achivements;
@@ -22,6 +24,6 @@ int main()
     gameLoop.ReceiveData(theWholeData);
     
     gameLoop.Run();
-    
+
     return 0;
 }

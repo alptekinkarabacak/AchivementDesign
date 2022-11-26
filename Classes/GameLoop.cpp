@@ -13,7 +13,23 @@ namespace Game
     
     void GameLoop::Run()
     {
-        // Runs some related and required code.
+        while(true) {
+            GameTypes::eGameSide a = GameTypes::eGameSide::UNDEFINIED;
+            if (m_tap.WhoIsTapped() == GameTypes::eGameSide::PLAYER)
+            {
+                ++m_data_container.m_opponent_data_handler.tap_count;
+                        std::cout<<"Player Pressed\n";
+
+            } else if (m_tap.WhoIsTapped() == GameTypes::eGameSide::OPPONENT)
+            {
+                ++m_data_container.m_opponent_data_handler.tap_count;
+                std::cout<<"Opponent Pressed\n";
+            } else {
+                continue;
+            }
+
+
+        }
     }
         
     void GameLoop::OnTap(const Interaction::Tap& tap)
