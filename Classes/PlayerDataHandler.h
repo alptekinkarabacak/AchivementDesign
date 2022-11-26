@@ -10,7 +10,15 @@ namespace Data
         // Some other related code.
         
         // It is used for updating a dedicated hard currency owned by the player
-        void SetCurrency(const int amount, const GameTypes::eCurrencyType type);
+        inline void SetCurrency(const int amount, const GameTypes::eCurrencyType type) {
+            if(type == GameTypes::eCurrencyType::DIAMOND)
+            {
+                total_diamond += amount;
+            } else if (type == GameTypes::eCurrencyType::GOLD)
+            {
+                total_gold += amount;
+            }
+        }
         int tap_count;
 
         private:
@@ -18,14 +26,4 @@ namespace Data
           int total_diamond;
         // Some other related codeç.
     };
-
-    void PlayerDataHandler::SetCurrency(const int amount, const GameTypes::eCurrencyType type) {
-       if(type == GameTypes::eCurrencyType::DIAMOND)
-       {
-           total_diamond += amount;
-       } else if (type == GameTypes::eCurrencyType::GOLD)
-       {
-           total_gold += amount;
-       }
-    }
 }

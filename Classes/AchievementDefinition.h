@@ -2,6 +2,8 @@
 
 #include <string>
 #include <vector>
+#include <map>
+#include <sstream>
 
 namespace Achievement
 {
@@ -18,5 +20,17 @@ namespace Achievement
         // and so on.
         std::vector<std::string> RewardTypes;
         std::vector<std::string> RewardAmount;
+        std::map<std::string, int> m_AchivementLookUpTable{{"First", 1}, {"Second", 2}, {"Third", 3}};
+        std::vector<std::tuple<int, int, GameTypes::eCurrencyType>> m_rewards;
+
+        inline std::tuple<int, int, GameTypes::eCurrencyType> ParseRewards(){
+            std::istringstream reward;
+            for(auto rewards : RewardTypes) {
+                reward = rewards.front();
+
+            }
+            reward = RewardTypes
+        }
+
     };
 }

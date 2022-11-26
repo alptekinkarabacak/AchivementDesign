@@ -1,8 +1,5 @@
 #include "GameLoop.h"
 
-#include "DataContainer.h"
-#include "Tap.h"
-
 namespace Game
 {
     void GameLoop::ReceiveData(Data::DataContainer& data)
@@ -10,30 +7,28 @@ namespace Game
       this->m_data_container = data;
         // Triggers some related code to get and set the game data
     }
-    
+
     void GameLoop::Run()
     {
         while(true) {
-            GameTypes::eGameSide a = GameTypes::eGameSide::UNDEFINIED;
-            if (m_tap.WhoIsTapped() == GameTypes::eGameSide::PLAYER)
-            {
-                ++m_data_container.m_opponent_data_handler.tap_count;
-                        std::cout<<"Player Pressed\n";
-
-            } else if (m_tap.WhoIsTapped() == GameTypes::eGameSide::OPPONENT)
-            {
-                ++m_data_container.m_opponent_data_handler.tap_count;
-                std::cout<<"Opponent Pressed\n";
-            } else {
-                continue;
+            m_tap.WhoIsTapped();
+            if(m_tap.m_who_is_tapped != GameTypes::eGameSide::UNDEFINIED) {
+                OnTap(m_tap);
             }
-
-
         }
     }
         
     void GameLoop::OnTap(const Interaction::Tap& tap)
     {
+        if(tap.m_who_is_tapped == GameTypes::eGameSide::PLAYER) {
+            ++m_data_container.m_player_data_handler.tap_count;
+        } else if(tap.m_who_is_tapped == GameTypes::eGameSide::OPPONENT) {
+            std::cout<<"Opponent has tapped\n";
+            ++m_data_container.m_opponent_data_handler.tap_count;
+        }
+
+
+
 
         
     }

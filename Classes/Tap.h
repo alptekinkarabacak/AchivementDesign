@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include <stdio.h>
-#include "curses.h"
 #include "SimpleGameTypes.h"
 
 namespace Interaction
@@ -11,17 +10,18 @@ namespace Interaction
     class Tap
     {
     public:
-        inline GameTypes::eGameSide WhoIsTapped()
+        GameTypes::eGameSide m_who_is_tapped;
+        inline void WhoIsTapped()
         {
             char tap;
             if(tap == '\n')
             {
-                return GameTypes::eGameSide::PLAYER;
+                m_who_is_tapped = GameTypes::eGameSide::PLAYER;
             } else if (tap == '\t')
             {
-                return GameTypes::eGameSide::OPPONENT;
+                m_who_is_tapped = GameTypes::eGameSide::OPPONENT;
             } else {
-                return GameTypes::eGameSide::UNDEFINIED;
+                m_who_is_tapped = GameTypes::eGameSide::UNDEFINIED;
             }
         }
     };
