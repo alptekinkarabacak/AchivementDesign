@@ -27,7 +27,7 @@ namespace Game
         void OnTap(const Interaction::Tap& tap); // Called when a tapping event happens
         void OnScore(const int score, const GameTypes::eGameSide); // Called when one of the sides scores
         void OnMatchResult(const GameTypes::eGameSide); // Called when the game session finishes
-        
+
         // Some other related code.
         private:
         Data::DataContainer m_data_container;

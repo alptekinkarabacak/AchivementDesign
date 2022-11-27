@@ -15,7 +15,7 @@ namespace Data
     {
         public:
         // Some other related code.
-        const std::vector<const Achievement::AchievementDefinition*>& GetAchievementDefinitions();
+        const std::vector<const Achievement::AchievementDefinition*>& GetAchievementDefinitions()const ;
         const void SetAchievementDefinitions(std::vector<const Achievement::AchievementDefinition*>);
         PlayerDataHandler m_player_data_handler;
         PlayerDataHandler m_opponent_data_handler;

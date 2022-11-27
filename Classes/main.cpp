@@ -19,9 +19,11 @@ int main()
     achievementDefinition->RewardAmount.emplace_back("500 gold and 5 Diamonds");
     achievementDefinition->RewardTypes.emplace_back("First win");
     achievementDefinition->RewardAmount.emplace_back("15 Diamonds");
+    achivements.emplace_back(achievementDefinition);
     theWholeData.SetAchievementDefinitions(achivements);
-
     gameLoop.ReceiveData(theWholeData);
+    achievementDefinition->OrdinalParser();
+    achievementDefinition->AchivementParser();
     
     gameLoop.Run();
 
