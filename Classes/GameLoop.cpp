@@ -8,8 +8,7 @@ namespace Game
       std::vector<const Achievement::AchievementDefinition*> achievementDefs;
       achievementDefs = m_data_container.GetAchievementDefinitions();
       m_data_container.AchivementsOrdinalParser(achievementDefs);
-
-        // Triggers some related code to get and set the game data
+      m_data_container.AchivementParser();
     }
 
     void GameLoop::Run()
