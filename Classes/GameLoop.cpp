@@ -27,10 +27,6 @@ namespace Game
             ++m_data_container.m_opponent_data_handler.tap_count;
         }
 
-
-
-
-        
     }
     void GameLoop::OnScore(const int score, const GameTypes::eGameSide)
     {

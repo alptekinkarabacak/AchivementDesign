@@ -76,7 +76,5 @@ namespace Achievement
                 }
             }
         }
-
-
     };
 }
