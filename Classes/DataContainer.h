@@ -19,7 +19,7 @@ namespace Data
         // Some other related code.
         const std::vector<const Achievement::AchievementDefinition*>& GetAchievementDefinitions()const ;
         const void SetAchievementDefinitions(std::vector<const Achievement::AchievementDefinition*>);
-        void AchivementsOrdinalParser(std::vector<const Achievement::AchievementDefinition*> achievementDefs);
+        void AchivementsOrdinalParser(std::vector<const Achievement::AchievementDefinition*>& achievementDefs);
         void AchivementParser();
         PlayerDataHandler m_player_data_handler;
         PlayerDataHandler m_opponent_data_handler;
