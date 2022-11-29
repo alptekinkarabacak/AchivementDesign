@@ -5,6 +5,7 @@
 #include "PlayerDataHandler.h"
 #include <map>
 
+
 namespace Achievement
 {
     class AchievementDefinition;
@@ -20,6 +21,7 @@ namespace Data
         // Some other related code.
         const std::vector<const Achievement::AchievementDefinition*>& GetAchievementDefinitions()const ;
         const void SetAchievementDefinitions(std::vector<const Achievement::AchievementDefinition*>);
+        std::vector<Achievement::AchievementDefinition*>& GetParsedAchivementDefinitions();
         void AchivementsOrdinalParser(std::vector<const Achievement::AchievementDefinition*>& achievementDefs);
         void AchivementParser();
         void RewardCounter(int amount, std::map<int, std::string> rewardType);
