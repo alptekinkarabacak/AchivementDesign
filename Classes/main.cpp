@@ -15,9 +15,9 @@ int main()
     achievementDefinition->RewardTypes.emplace_back("4th tap");
     achievementDefinition->RewardAmount.emplace_back("500 gold");
     achievementDefinition->RewardTypes.emplace_back("First score");
-    achievementDefinition->RewardAmount.emplace_back("500 gold and 5 Diamonds");
+    achievementDefinition->RewardAmount.emplace_back("500 gold and 5 diamonds");
     achievementDefinition->RewardTypes.emplace_back("First win");
-    achievementDefinition->RewardAmount.emplace_back("15 Diamonds");
+    achievementDefinition->RewardAmount.emplace_back("15 diamonds");
     // 1500 Gold 1220 Diamonds
     achivements.emplace_back(achievementDefinition);
     theWholeData.SetAchievementDefinitions(achivements);

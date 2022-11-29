@@ -22,8 +22,7 @@ namespace Data
         const void SetAchievementDefinitions(std::vector<const Achievement::AchievementDefinition*>);
         void AchivementsOrdinalParser(std::vector<const Achievement::AchievementDefinition*>& achievementDefs);
         void AchivementParser();
-        void RewardCounter(PlayerDataHandler& playerDataHandler, std::map<int, std::string> rewardType);
-        void TapScoreCounter(PlayerDataHandler& playerDataHandler);
+        void RewardCounter(int amount, std::map<int, std::string> rewardType);
 
         Achievement::AchievementDefinition *achievementDefinition;
         PlayerDataHandler m_player_data_handler;

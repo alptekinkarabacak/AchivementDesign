@@ -1,5 +1,4 @@
 #include "DataContainer.h"
-
 #include "AchievementDefinition.h"
 
 namespace Data
@@ -93,13 +92,13 @@ namespace Data
         delete achievementDefinition;
     }
 
-    void DataContainer::RewardCounter(PlayerDataHandler& playerDataHandler, std::map<int, std::string> rewardType) {
-        std::string reward = rewardType[(playerDataHandler.tap_count)];
+    void DataContainer::RewardCounter(int amount, std::map<int, std::string> rewardType) {
+        std::string reward = rewardType[amount];
         if(reward.compare("") == 0) {
             return;
         }
         size_t gold_position = reward.find("gold");
-        size_t diamond_position = reward.find("diamond");
+        size_t diamond_position = reward.find("diamonds");
         size_t gold_amount_position{0};
         size_t diamond_amount_position{0};
         std::string amount_of_gold_str, amount_of_diamond_str;
@@ -130,7 +129,7 @@ namespace Data
             }
         }
 
-        playerDataHandler.SetCurrency(amount_of_gold, GameTypes::eCurrencyType::GOLD);
-        playerDataHandler.SetCurrency(amount_of_diamond, GameTypes::eCurrencyType::DIAMOND);
+        m_player_data_handler.SetCurrency(amount_of_gold, GameTypes::eCurrencyType::GOLD);
+        m_player_data_handler.SetCurrency(amount_of_diamond, GameTypes::eCurrencyType::DIAMOND);
     }
 }
