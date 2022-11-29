@@ -83,7 +83,7 @@ namespace Data
                             std::pair<int, std::string> winReward;
                             winReward.first = std::stoi(reward.substr(0, position - 3));
                             winReward.second = achivement->RewardAmount.at(amount_index++);
-                            WindRewards.insert(winReward);
+                            WinRewards.insert(winReward);
                         }
                     }
                 }
@@ -93,18 +93,23 @@ namespace Data
         delete achievementDefinition;
     }
 
-    PlayerDataHandler DataContainer::TapRewardCounter(PlayerDataHandler playerDataHandler) {
-        std::string reward = TapRewards.at(playerDataHandler.tap_count);
+    void DataContainer::RewardCounter(PlayerDataHandler& playerDataHandler, std::map<int, std::string> rewardType) {
+        std::string reward = rewardType[(playerDataHandler.tap_count)];
+        if(reward.compare("") == 0) {
+            return;
+        }
         size_t gold_position = reward.find("gold");
-        size_t amount_position{0};
-        std::string amount_of_gold_str;
-        int amount_of_gold;
+        size_t diamond_position = reward.find("diamond");
+        size_t gold_amount_position{0};
+        size_t diamond_amount_position{0};
+        std::string amount_of_gold_str, amount_of_diamond_str;
+        int amount_of_gold{0}, amount_of_diamond{0};
         if (gold_position != std::string::npos)
         {
-            amount_position = reward.rfind(' ', gold_position-2);
-            if(amount_position != std::string::npos)
+            gold_amount_position = reward.rfind(' ', gold_position-2);
+            if(gold_amount_position != std::string::npos)
             {
-                 amount_of_gold_str = reward.substr(amount_position, gold_position-2);
+                 amount_of_gold_str = reward.substr(gold_amount_position, gold_position-2);
                  amount_of_gold = std::stoi(amount_of_gold_str);
             } else{
                 amount_of_gold_str = reward.substr(0, gold_position-1);
@@ -113,6 +118,19 @@ namespace Data
 
         }
 
-        return PlayerDataHandler();
+        if (diamond_position != std::string::npos) {
+            diamond_amount_position = reward.rfind(' ', diamond_position-2);
+            if(diamond_amount_position != std::string::npos)
+            {
+                amount_of_diamond_str = reward.substr(diamond_amount_position, diamond_position-2);
+                amount_of_diamond = std::stoi(amount_of_diamond_str);
+            } else{
+                amount_of_diamond_str = reward.substr(0, diamond_position-1);
+                amount_of_diamond = std::stoi(amount_of_diamond_str);
+            }
+        }
+
+        playerDataHandler.SetCurrency(amount_of_gold, GameTypes::eCurrencyType::GOLD);
+        playerDataHandler.SetCurrency(amount_of_diamond, GameTypes::eCurrencyType::DIAMOND);
     }
 }
