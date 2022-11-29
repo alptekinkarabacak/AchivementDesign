@@ -31,6 +31,5 @@ namespace Game
         // Some other related code.
         private:
         Data::DataContainer m_data_container;
-        Interaction::Tap m_tap;
     };
 }

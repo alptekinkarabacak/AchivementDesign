@@ -20,8 +20,5 @@ namespace Achievement
         // and so on.
         std::vector<std::string> RewardTypes;
         std::vector<std::string> RewardAmount;
-        std::map<int, std::string> TapRewards;
-        std::map<int, std::string> ScoreRewards;
-        std::map<int, std::string> WindRewards;
     };
 }
