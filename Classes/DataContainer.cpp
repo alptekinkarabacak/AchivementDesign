@@ -17,6 +17,11 @@ namespace Data
         this->achievementDefs = achivements;
     }
 
+    std::vector<Achievement::AchievementDefinition*>& DataContainer::GetParsedAchivementDefinitions()
+    {
+      return parsedAchievementDefs;
+    }
+
     void DataContainer::AchivementsOrdinalParser(std::vector<const Achievement::AchievementDefinition *>& achievementDefs) {
       for (auto  achivements : achievementDefs)
       {
@@ -132,4 +137,5 @@ namespace Data
         m_player_data_handler.SetCurrency(amount_of_gold, GameTypes::eCurrencyType::GOLD);
         m_player_data_handler.SetCurrency(amount_of_diamond, GameTypes::eCurrencyType::DIAMOND);
     }
-}
+
+    }

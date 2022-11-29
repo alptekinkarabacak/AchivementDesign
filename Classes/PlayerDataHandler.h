@@ -22,10 +22,7 @@ namespace Data
         int tap_count{0};
         int score_count{0};
         int win_count{0};
-
-        private:
-          int total_gold{0};
-          int total_diamond{0};
-        // Some other related codeç.
+        int total_gold{0};
+        int total_diamond{0};
     };
 }

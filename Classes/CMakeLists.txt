@@ -4,8 +4,7 @@ project(MasomoAssignment)
 set(CMAKE_CXX_STANDARD 17)
 
 include_directories(.)
-find_package( Curses REQUIRED )
-include_directories( ${CURSES_INCLUDE_DIRS} )
+add_subdirectory(unit_tests)
 
 add_executable(MasomoAssignment
         AchievementDefinition.h
