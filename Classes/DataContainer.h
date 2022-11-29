@@ -18,6 +18,8 @@ namespace Data
     {
         public:
         DataContainer();
+        static constexpr int k_number_of_taps_to_score{5};
+        static constexpr int k_number_of_scores_to_win{3};
         // Some other related code.
         const std::vector<const Achievement::AchievementDefinition*>& GetAchievementDefinitions()const ;
         const void SetAchievementDefinitions(std::vector<const Achievement::AchievementDefinition*>);
@@ -28,7 +30,6 @@ namespace Data
 
         Achievement::AchievementDefinition *achievementDefinition;
         PlayerDataHandler m_player_data_handler;
-        PlayerDataHandler m_opponent_data_handler;
         std::map<int, std::string> TapRewards;
         std::map<int, std::string> ScoreRewards;
         std::map<int, std::string> WinRewards;

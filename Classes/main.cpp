@@ -7,6 +7,7 @@ int main()
 {
     Game::GameLoop gameLoop;
     Data::DataContainer theWholeData;
+    // For Testing
     Achievement::AchievementDefinition *achievementDefinition = new Achievement::AchievementDefinition();
     std::vector<const Achievement::AchievementDefinition*> achivements;
     achievementDefinition->ImagePath = "asdad";
@@ -18,12 +19,13 @@ int main()
     achievementDefinition->RewardAmount.emplace_back("500 gold and 5 diamonds");
     achievementDefinition->RewardTypes.emplace_back("First win");
     achievementDefinition->RewardAmount.emplace_back("15 diamonds");
-    // 1500 Gold 1220 Diamonds
+
     achivements.emplace_back(achievementDefinition);
     theWholeData.SetAchievementDefinitions(achivements);
     gameLoop.ReceiveData(theWholeData);
     
     gameLoop.Run();
+    // The earnings are must be 1500 Gold and 1220 Diamonds
 
     return 0;
 }
