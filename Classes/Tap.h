@@ -10,19 +10,6 @@ namespace Interaction
     class Tap
     {
     public:
-        GameTypes::eGameSide m_who_is_tapped;
-        inline void WhoIsTapped()
-        {
-            char tap;
-            if(tap == '\n')
-            {
-                m_who_is_tapped = GameTypes::eGameSide::PLAYER;
-            } else if (tap == '\t')
-            {
-                m_who_is_tapped = GameTypes::eGameSide::OPPONENT;
-            } else {
-                m_who_is_tapped = GameTypes::eGameSide::UNDEFINIED;
-            }
-        }
+
     };
 }

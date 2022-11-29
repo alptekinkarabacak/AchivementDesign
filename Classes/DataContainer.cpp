@@ -10,11 +10,6 @@ namespace Data
         achievementDefinition =  new Achievement::AchievementDefinition();
     }
 
-    DataContainer::~DataContainer()
-    {
-
-    }
-
     const std::vector<const Achievement::AchievementDefinition*>& DataContainer::GetAchievementDefinitions()const
     {
         return achievementDefs;
@@ -96,5 +91,28 @@ namespace Data
         }
 
         delete achievementDefinition;
+    }
+
+    PlayerDataHandler DataContainer::TapRewardCounter(PlayerDataHandler playerDataHandler) {
+        std::string reward = TapRewards.at(playerDataHandler.tap_count);
+        size_t gold_position = reward.find("gold");
+        size_t amount_position{0};
+        std::string amount_of_gold_str;
+        int amount_of_gold;
+        if (gold_position != std::string::npos)
+        {
+            amount_position = reward.rfind(' ', gold_position-2);
+            if(amount_position != std::string::npos)
+            {
+                 amount_of_gold_str = reward.substr(amount_position, gold_position-2);
+                 amount_of_gold = std::stoi(amount_of_gold_str);
+            } else{
+                amount_of_gold_str = reward.substr(0, gold_position-1);
+                amount_of_gold = std::stoi(amount_of_gold_str);
+            }
+
+        }
+
+        return PlayerDataHandler();
     }
 }

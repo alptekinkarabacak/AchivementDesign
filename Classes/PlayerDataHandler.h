@@ -19,7 +19,7 @@ namespace Data
                 total_gold += amount;
             }
         }
-        int tap_count;
+        int tap_count{0};
 
         private:
           int total_gold;

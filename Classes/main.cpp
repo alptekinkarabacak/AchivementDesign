@@ -6,13 +6,12 @@
 int main()
 {
     Game::GameLoop gameLoop;
-    system("/bin/stty raw");
     Data::DataContainer theWholeData;
     Achievement::AchievementDefinition *achievementDefinition = new Achievement::AchievementDefinition();
     std::vector<const Achievement::AchievementDefinition*> achivements;
     achievementDefinition->ImagePath = "asdad";
     achievementDefinition->RewardTypes.emplace_back("First tap");
-    achievementDefinition->RewardAmount.emplace_back("5 gold");
+    achievementDefinition->RewardAmount.emplace_back("500 diamonds and 500 golds");
     achievementDefinition->RewardTypes.emplace_back("100th tap");
     achievementDefinition->RewardAmount.emplace_back("500 gold");
     achievementDefinition->RewardTypes.emplace_back("First score");
@@ -22,8 +21,6 @@ int main()
     achivements.emplace_back(achievementDefinition);
     theWholeData.SetAchievementDefinitions(achivements);
     gameLoop.ReceiveData(theWholeData);
-    achievementDefinition->OrdinalParser();
-    achievementDefinition->AchivementParser();
     
     gameLoop.Run();
 
